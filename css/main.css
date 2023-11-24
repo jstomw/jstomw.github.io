@@ -1,4 +1,84 @@
 body{
-    background: black;
-    color: white;
+    background: #232627;
+    color: #BCBCBC;
+    font-size: 21px;
+}
+
+#main{
+    margin-top: 15px;
+}
+
+.row>* {
+    padding: 5px !important;
+    min-height: 800px;
+}
+
+.pnl{
+    padding: 15px;
+    height:100%;
+    border: 1px solid #BCBCBC;
+    border-top: none;
+}
+
+.main-menu{
+    border:none;
+    background: #4E4E4E;
+    margin-bottom: 15px;
+}
+
+#menu > ul {
+    margin-left: 0; /* Отступ слева в браузере IE и Opera */
+    padding-left: 0; /* Отступ слева в браузере Firefox, Safari, Chrome */
+}
+
+#menu > ul > li {
+    list-style-type: none; /* Убираем маркеры */
+}
+
+.avatar{
+    width: 200px;
+    height: 200px;
+    margin-left:15px;
+    border: 1px solid #BCBCBC;
+    padding: 5px;
+    float: right;
+}
+.content-header{
+    position: relative;
+    top: calc(-1em + 3px);
+    padding-left: 40px;
+    padding-right: 60px;
+}
+
+.content-header hr{
+    display: inline-block;
+    position: absolute;
+    border: 1px solid #BCBCBC;
+    width: calc(100% - 100px);
+    left: 40px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 1;
+    border-bottom: none;
+}
+
+.content-header span{
+    position: absolute;
+    background: #232627;
+    padding: 0px 7px 0px 0px;
+}
+
+.content-header:before{
+    display: inline-block;
+    content: "-<─";
+    position: absolute;
+    left: 0;
+}
+
+.content-header:after{
+    display: inline-block;
+    content: "○[^]>-";
+    position: absolute;
+    right: 0;
 }

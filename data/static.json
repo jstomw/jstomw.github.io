@@ -1,0 +1,11 @@
+{
+  "menu" : [
+    {"name" :  "Home"},
+    {"name" :  "My skills"},
+    {"name" :  "Related skills"}
+  ],
+  "pages" : [
+    "data/main.htm"
+  ]
+}
+
