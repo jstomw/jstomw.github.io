@@ -5,6 +5,7 @@ const app = {
     dataUrl : "data/static.json",
     menuIndex : null,
     fetchOptions : {cache: "no-store"},
+    language : "en-US",
 
     init : () => {
         fetch(app.dataUrl, app.fetchOptions)
@@ -14,6 +15,7 @@ const app = {
                 app.updateMenuIndex();
                 app.buildMenu();
                 app.buildPage();
+                app.buildLang();
             });
     },
 
@@ -42,7 +44,7 @@ const app = {
         const ul = document.createElement("ul");
         app.menuData.forEach((d) => {
             let li = document.createElement("li");
-            li.textContent = d.name;
+            li.innerHTML = d.name;
             li.dataset.id = d.id;
             if(app.menuIndex === d.id){
                 li.classList.add("active");
@@ -51,15 +53,22 @@ const app = {
         });
         const menu = document.getElementById("menu");
         menu.appendChild(ul);
-        menu.addEventListener('click' , app.onMenuClickEvent);
+        ul.addEventListener('click' , app.onMenuClick);
     },
 
-    onMenuClickEvent : (e) => {
-        for (const child of e.target.parentElement.children) {
-            child.classList.remove('active'); //reset all
+    onMenuClick : (e) => {
+        let target = e.target;
+        if(target.tagName !== "LI"){
+            while(target.tagName !== "LI"){
+                target = target.parentElement;
+            }
         }
-        e.target.classList.add('active'); //add current
-        app.setCurrentPageUrl(e.target.dataset.id)
+        for (const child of target.parentElement.children) {
+            if(child.tagName === "LI")
+                child.classList.remove('active'); //reset all
+        }
+        target.classList.add('active'); //add current
+        app.setCurrentPageUrl(target.dataset.id)
         app.buildPage();
     },
 
@@ -73,6 +82,23 @@ const app = {
 
         const nav = document.getElementById("nav");
         nav.innerHTML = data.name;
+    },
+
+    buildLang : () => {
+        app.language = localStorage.getItem("language");
+        if(app.language === null || app.menuIndex === "undefined"){
+            localStorage.setItem("language", app.language = "en-US");
+        }
+        const nav = document.getElementById("main");
+        nav.dataset.lang = app.language;
+        document.getElementById("ls").addEventListener("click", app.onLangClick);
+    },
+
+    onLangClick: (e)=>{
+        const nav = document.getElementById("main");
+        if(e.target.dataset.lang !== undefined){
+            localStorage.setItem("language", app.language = nav.dataset.lang = e.target.dataset.lang);
+        }
     }
 };
 

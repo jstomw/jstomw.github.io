@@ -1,8 +1,9 @@
 {
   "menu" : [
-    {"id": "0", "name" :  "/Home", "page" :  "data/main.htm"},
-    {"id": "1", "name" :  "/My skills", "page" :  "data/skills.htm"},
-    {"id": "2", "name" :  "/Related skills", "page" :  "data/skills.htm"}
+    {"id": "0", "name" :  "/<span data-lang=\"en-US\">Home</span><span data-lang=\"ru-RU\">Главная</span>", "page" :  "data/main.htm"},
+    {"id": "1", "name" :  "/<span data-lang=\"en-US\">Skills</span><span data-lang=\"ru-RU\">Навыки</span>", "page" :  "data/skills.htm"},
+    {"id": "2", "name" :  "/<span data-lang=\"en-US\">Work experience</span><span data-lang=\"ru-RU\">Опыт работы</span>", "page" :  "data/employers.htm"},
+    {"id": "3", "name" :  "/<span data-lang=\"en-US\">Projects</span><span data-lang=\"ru-RU\">Проекты</span>", "page" :  "data/projects.htm"}
   ]
 }
 

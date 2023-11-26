@@ -2,15 +2,46 @@ body{
     background: #232627;
     color: #BCBCBC;
     font-size: 16px;
+    overflow-y: scroll;
+}
+
+.logo{
+    display: inline-block;
+    height: 1.5em;
+    position: relative;
+    top: -2px;
+    left: -8px;
 }
 
 #main{
     margin-top: 15px;
 }
 
-.row>* {
-    padding: 5px !important;
-    min-height: 800px;
+.row>div {
+    padding: 0px !important;
+}
+
+@media only screen and (min-width: 767px) {
+    #main>.container-md>.row{
+        min-height: 800px;
+    }
+    #main .container-md>.row>div:first-child {
+        padding-right: 5px !important;
+    }
+
+    #main .container-md>.row>div:last-child {
+        padding-left: 5px !important;
+    }
+}
+
+@media only screen and (min-width: 575px) {
+    body{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    #main .container-md>.row>div:first-child {
+       margin-bottom: 15px !important;
+    }
 }
 
 .pnl{
@@ -21,9 +52,38 @@ body{
 }
 
 .main-menu{
+    position: relative;
     border:none;
     background: #4E4E4E;
-    margin-bottom: 15px;
+    height: 2em;
+    line-height: 2em;
+}
+
+.main-menu a{
+    text-decoration: none;
+    color: #BCBCBC;
+    font-weight: bold;
+}
+
+.main-menu a span:first-of-type{
+    color : #C58F19 !important;
+}
+
+.main-menu a:hover{
+    text-decoration: underline;
+}
+
+.dir{
+    color: #A0A07D;
+    font-weight: bold;
+}
+
+ul[title]::before {
+    content: attr(title);
+    display: block;
+    font-weight: bold;
+    margin-left: -20px;
+    color: #A0A07D;
 }
 
 #menu > ul {
@@ -34,9 +94,16 @@ body{
 #menu > ul > li {
     list-style-type: none; /* Убираем маркеры */
     cursor: pointer;
+    color: #A0A07D;
+    font-weight: bold;
+    user-select: none;
+    padding-left: 5px;
 }
+
 #menu > ul > li.active {
     background: #1D99F3;
+    color: #ECF7FE;
+    font-weight: normal;
 }
 
 .avatar{
@@ -72,6 +139,7 @@ body{
     position: absolute;
     background: #232627;
     padding: 0px 7px 0px 0px;
+    white-space: nowrap;
 }
 
 .content-header:before{
@@ -86,4 +154,68 @@ body{
     content: "○[^]>-";
     position: absolute;
     right: 0;
+}
+
+.language-selector:after{
+    display: inline-block;
+    content: '';
+    clear: both;
+}
+
+.language-selector{
+    position: absolute;
+    right: 0;
+}
+
+.language-selector span{
+    display: inline-block;
+    width: 32px;
+    height: 24px;
+    top: calc((2em - 24px) * 0.5);
+    position: relative;
+    transform: scale(0.8);
+    border: 2px solid transparent;
+}
+
+.language-selector span[data-lang="en-US"]{
+    background: url("/images/flags32.png") 0px 32px no-repeat;
+    background-position-y: calc(-7328px - 5px);
+}
+
+.language-selector span[data-lang="ru-RU"]{
+    background: url("/images/flags32.png") 0px 32px no-repeat;
+    background-position-y: calc(-6208px - 5px);
+}
+
+#main[data-lang="ru-RU"] .language-selector span[data-lang="ru-RU"],
+#main[data-lang="en-US"] .language-selector span[data-lang="en-US"]
+{
+    border: 2px solid lime;
+}
+
+#main[data-lang="en-US"] #menu *[data-lang="ru-RU"],
+#main[data-lang="ru-RU"] #menu *[data-lang="en-US"],
+#main[data-lang="en-US"] #content *[data-lang="ru-RU"],
+#main[data-lang="ru-RU"] #content *[data-lang="en-US"],
+#main[data-lang="en-US"] #nav *[data-lang="ru-RU"],
+#main[data-lang="ru-RU"] #nav *[data-lang="en-US"]{
+    display: none;
+}
+
+.employers .col{
+    text-align: center;
+    padding: 15px !important;
+}
+
+.employers .col a{
+    margin-top: 15px;
+    text-align: center;
+}
+
+.employers .col svg,
+.employers .col img{
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    background: transparent;
 }
