@@ -33,6 +33,10 @@ body{
 
 #menu > ul > li {
     list-style-type: none; /* Убираем маркеры */
+    cursor: pointer;
+}
+#menu > ul > li.active {
+    background: #1D99F3;
 }
 
 .avatar{

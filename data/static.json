@@ -1,11 +1,8 @@
 {
   "menu" : [
-    {"name" :  "Home"},
-    {"name" :  "My skills"},
-    {"name" :  "Related skills"}
-  ],
-  "pages" : [
-    "data/main.htm"
+    {"id": "0", "name" :  "/Home", "page" :  "data/main.htm"},
+    {"id": "1", "name" :  "/My skills", "page" :  "data/skills.htm"},
+    {"id": "2", "name" :  "/Related skills", "page" :  "data/skills.htm"}
   ]
 }
 
