@@ -5,7 +5,7 @@ const app = {
     dataUrl : "data/static.json",
     menuIndex : null,
     fetchOptions : {cache: "no-store"},
-    language : "en-US",
+    language : "ru-RU",
 
     init : () => {
         fetch(app.dataUrl, app.fetchOptions)
