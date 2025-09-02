@@ -5,7 +5,8 @@ const app = {
     dataUrl : "data/static.json",
     menuIndex : null,
     fetchOptions : {cache: "no-store"},
-    language : "ru-RU",
+    language : "en-US",
+    defaultLanguage: "ru-RU"
 
     init : () => {
         fetch(app.dataUrl, app.fetchOptions)
@@ -87,7 +88,7 @@ const app = {
     buildLang : () => {
         app.language = localStorage.getItem("language");
         if(app.language === null || app.menuIndex === "undefined"){
-            localStorage.setItem("language", app.language = "en-US");
+            localStorage.setItem("language", app.language = app.defaultLanguage);
         }
         const nav = document.getElementById("main");
         nav.dataset.lang = app.language;
