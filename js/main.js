@@ -6,7 +6,7 @@ const app = {
     menuIndex : null,
     fetchOptions : {cache: "no-store"},
     language : "en-US",
-    defaultLanguage: "ru-RU"
+    defaultLanguage: "ru-RU",
 
     init : () => {
         fetch(app.dataUrl, app.fetchOptions)
